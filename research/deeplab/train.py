@@ -61,10 +61,10 @@ flags.DEFINE_string('train_logdir', None,
 flags.DEFINE_integer('log_steps', 10,
                      'Display logging information at every log_steps.')
 
-flags.DEFINE_integer('save_interval_secs', 1200,
+flags.DEFINE_integer('save_interval_secs', 3600,
                      'How often, in seconds, we save the model to disk.')
 
-flags.DEFINE_integer('save_summaries_secs', 600,
+flags.DEFINE_integer('save_summaries_secs', 1200,
                      'How often, in seconds, we compute the summaries.')
 
 flags.DEFINE_boolean('save_summaries_images', False,
@@ -98,7 +98,7 @@ flags.DEFINE_float('momentum', 0.9, 'The momentum value to use')
 # When fine_tune_batch_norm=True, use at least batch size larger than 12
 # (batch size more than 16 is better). Otherwise, one could use smaller batch
 # size and set fine_tune_batch_norm=False.
-flags.DEFINE_integer('train_batch_size', 8,
+flags.DEFINE_integer('train_batch_size', 16,
                      'The number of images in each batch during training.')
 
 # For weight_decay, use 0.00004 for MobileNet-V2 or Xcpetion model variants.
@@ -106,7 +106,7 @@ flags.DEFINE_integer('train_batch_size', 8,
 flags.DEFINE_float('weight_decay', 0.00004,
                    'The value of the weight decay for training.')
 
-flags.DEFINE_multi_integer('train_crop_size', [513, 513],
+flags.DEFINE_multi_integer('train_crop_size', [224, 224],
                            'Image crop size [height, width] during training.')
 
 flags.DEFINE_float('last_layer_gradient_multiplier', 1.0,
@@ -158,7 +158,7 @@ flags.DEFINE_integer('output_stride', 16,
                      'The ratio of input to output spatial resolution.')
 
 # Dataset settings.
-flags.DEFINE_string('dataset', 'pascal_voc_seg',
+flags.DEFINE_string('dataset', 'mhpv2',
                     'Name of the segmentation dataset.')
 
 flags.DEFINE_string('train_split', 'train',
